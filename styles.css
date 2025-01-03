@@ -1,5 +1,5 @@
 /* General Styles */
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -18,7 +18,6 @@ body {
     padding-bottom: 30px;
 }
 
-
 /* Header Styles */
 header {
     display: flex;
@@ -26,7 +25,7 @@ header {
     align-items: center;
     background-color: #333;
     color: white;
-    padding: 10px 10px; /* Reduce horizontal padding */
+    padding: 10px 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -34,11 +33,10 @@ header {
     z-index: 1000;
 }
 
-
 .logo {
     height: 50px;
-    border: 1px solid black; /* Set the border width, style, and color */
-    border-radius: 8px; /* Optional: Add rounded corners */
+    border: 1px solid black;
+    border-radius: 8px;
 }
 
 nav ul {
@@ -74,7 +72,7 @@ nav ul li a:hover {
     animation: fadeIn 1.5s ease-in-out;
 }
 
-#hero .container{
+#hero .container {
     background-color: rgba(255, 255, 255, 0.5);
     color: black;
     padding: 20px;
@@ -106,40 +104,97 @@ nav ul li a:hover {
 }
 
 /* Product Section */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.product-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 20px 0;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+.product-image {
+    flex: 0 0 35%;
+    max-width: 350px;
+}
+
+.product-content {
+    flex: 1;
 }
 
 .product-card {
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-    transition: transform 0.3s;
-    animation: slideUp 0.8s ease-in-out;
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-}
-
-@keyframes slideUp {
-    0% { transform: translateY(30px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    display: block;
+    text-decoration: none;
+    color: #000;
 }
 
 .product-card img {
-    max-width: 100%;
-    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
 }
 
-.product-card img:hover {
+.product-card:hover img {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-content h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.product-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .product-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product-image {
+        max-width: 100%;
+    }
+
+    .product-content {
+        padding: 20px 0;
+    }
+}
+
+/* Product Features Grid */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-grid li {
+    flex: 1 1 calc(33.33% - 40px);
+    list-style: none;
+    padding: 20px;
+    border-radius: 10px;
+    border-color: #8a8d8f;
+    border-style: solid;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-grid li:hover {
+    transform: translateY(-5px);
 }
 
 /* Image Zoom Functionality */
@@ -227,4 +282,10 @@ footer {
 .social-links a:hover {
     transform: scale(1.2);
     color: #ff6600;
+}
+
+/* Add animation for sliding up */
+@keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
